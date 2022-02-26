@@ -1,0 +1,28 @@
+A = imread('image.jpg');
+subplot(4,2,1);
+imshow(A);
+title('Original Image');
+B = imrotate(A,25);
+subplot(4,2,2);
+imshow(B);
+title('Phase shifted image 25 degrees');
+C = rgb2gray(A);
+subplot(4,2,3);
+imshow(C);
+title('Gray Image');
+subplot(4,2,4);
+imhist(C);
+title('Histogram of grayscale');
+D = histeq(A);
+subplot(4,2,5);
+imshow(D)
+title('Enhancing image of histogram');
+BW1 = edge(C,'Canny');
+BW2 = edge(C,'prewitt');
+subplot(4,2,6);
+imshowpair(BW1,BW2,'montage');
+title('Edge of gray scale image');
+subplot(4,2,7);
+title('White color represents 1 = BCD number');
+subplot(4,2,8);
+title('Black color represents 0 = BCD number');
